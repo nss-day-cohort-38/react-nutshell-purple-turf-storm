@@ -5,7 +5,7 @@ import Nutshell from "./components/Nutshell"
 
 ReactDOM.render(
     <Router>
-        <Nutshell />
+        <Nutshell/>
     </Router>,
     document.getElementById("root")
 );
