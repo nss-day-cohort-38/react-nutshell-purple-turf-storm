@@ -12,10 +12,10 @@ const ApplicationViews = props => {
                 return <Login setUser={setUser} {...props}/>
             }}
             />
-            <Route exact="/" render={props => {
+            {/* <Route exact="/" render={props => {
                 return <Home />
             }}
-            />
+            /> */}
         </React.Fragment>
     )
 }
