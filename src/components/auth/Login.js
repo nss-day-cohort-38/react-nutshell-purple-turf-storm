@@ -40,7 +40,7 @@ const Login = props => {
       <fieldset>
         <h3>Please sign in</h3>
         <div className="formgrid">
-          <label htmlFor="inputUserName">Username</label>
+          <label htmlFor="inputUserName">Username: </label>
           <input
             onChange={handleFieldChange}
             type="userName"
@@ -50,7 +50,7 @@ const Login = props => {
             autoFocus=""
           />
 
-          <label htmlFor="inputPassword">Password</label>
+          <label htmlFor="inputPassword">Password: </label>
           <input
             onChange={handleFieldChange}
             type="password"
