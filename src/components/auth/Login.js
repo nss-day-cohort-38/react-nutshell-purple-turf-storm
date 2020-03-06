@@ -3,7 +3,7 @@ import "../Nutshell.css"
 import UserManager from "../../modules/UserManager"
 
 const Login = props => {
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ userName: "", password: "" });
 
   // Update state whenever an input field is edited
   const handleFieldChange = (evt) => {
@@ -17,14 +17,14 @@ const Login = props => {
     let valid = false;
     UserManager.getAll().then(users => {
         users.filter(user => {
-            if(user.email === credentials.email && user.password === credentials.password) {
+            if(user.userName === credentials.userName && user.password === credentials.password) {
                 valid = true;
                 props.setUser(credentials)
                 props.history.push("/");
             } 
         })
         if(!valid) {
-            alert("incorrect email/password")
+            alert("incorrect username/password")
         }
     })
   }
@@ -34,11 +34,11 @@ const Login = props => {
       <fieldset>
         <h3>Please sign in</h3>
         <div className="formgrid">
-          <input onChange={handleFieldChange} type="email"
-            id="email"
-            placeholder="Email address"
+          <input onChange={handleFieldChange} type="userName"
+            id="userName"
+            placeholder="UserName"
             required="" autoFocus="" />
-          <label htmlFor="inputEmail">Email address</label>
+          <label htmlFor="inputUserName">Username</label>
 
           <input onChange={handleFieldChange} type="password"
             id="password"
