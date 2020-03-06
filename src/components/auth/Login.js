@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import "../Nutshell.css"
+import UserManager from "../../modules/UserManager"
 
 const Login = props => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
