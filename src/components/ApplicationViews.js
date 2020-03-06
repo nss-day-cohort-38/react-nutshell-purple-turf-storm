@@ -19,3 +19,5 @@ const ApplicationViews = props => {
         </React.Fragment>
     )
 }
+
+export default ApplicationViews
