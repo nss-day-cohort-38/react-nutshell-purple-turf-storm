@@ -14,11 +14,19 @@ const Login = props => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    sessionStorage.setItem(
-      "credentials",
-      JSON.stringify(credentials)
-    );
-    props.history.push("/");
+    let valid = false;
+    UserManager.getAll().then(users => {
+        users.filter(user => {
+            if(user.email === credentials.email && user.password === credentials.password) {
+                valid = true;
+                props.setUser(credentials)
+                props.history.push("/");
+            } 
+        })
+        if(!valid) {
+            alert("incorrect email/password")
+        }
+    })
   }
 
   return (
