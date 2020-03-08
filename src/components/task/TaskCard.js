@@ -7,9 +7,21 @@ const TaskCard = props => {
     <div className="taskCard">
       <div className="taskCardContent">
         <h3>
-          <span clasName="taskCardTitle">Task:{props.task.name}</span>
+          <span className="taskCardTitle">Task:{props.task.name}</span>
         </h3>
         <p>Complete By: {props.task.completeBy}</p>
+        <Link to={`/tasks/${props.task.id}`}>
+          <button>Details</button>
+        </Link>
+        <button
+          type="button"
+          onClick={() => props.history.push(`tasks/${props.task.id}/edit`)}
+        >
+          Edit
+        </button>
+        <button type="button" onClick={() => props.deleteTask(props.task.id)}>
+          Delete
+        </button>
       </div>
     </div>
   );
