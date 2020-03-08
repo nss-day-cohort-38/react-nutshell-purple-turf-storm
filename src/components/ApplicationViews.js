@@ -2,6 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import Login from "./auth/Login";
+import TaskList from "./task/TaskList";
 
 const ApplicationViews = props => {
     const setUser = props.setUser;
@@ -14,6 +15,17 @@ const ApplicationViews = props => {
             />
             <Route exact path="/" render={props => {
                 return <Home />
+            }}
+            />
+            <Route
+            exact
+            path="/tasks"
+            render={props => {
+                if (hasUser) {
+                    return <TaskList {...props} />;
+                } else {
+                    return <Redirect to="/login" />;
+                }
             }}
             />
         </React.Fragment>

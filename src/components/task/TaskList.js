@@ -1,4 +1,4 @@
-import React, { useState, useeffect } from "react";
+import React, { useState, useEffect } from "react";
 import TaskCard from "./TaskCard";
 import TaskManager from "../../modules/TaskManager";
 
@@ -11,15 +11,31 @@ const TaskList = props => {
     });
   };
 
-  useeffect(() => {
+  useEffect(() => {
     getTasks();
   }, []);
 
   return (
       <>
-        <section>
-            
+        <section className="taskSection">
+            <button 
+            type="button"
+            className="btn"
+            onClick={() => {
+                props.history.push("/tasks/new")
+            }}>New Task</button>
         </section>
+        <div className="conatainerCards">
+            {tasks.map(task => (
+                <TaskCard
+                    key={task.id}
+                    task={task}
+                    {...props}
+                    />
+            ))}
+        </div>
       </>
   )
 };
+
+export default TaskList
