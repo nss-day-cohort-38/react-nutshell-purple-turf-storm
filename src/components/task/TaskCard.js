@@ -1,6 +1,5 @@
 import React from "react";
 import "./Task.css";
-import { Link } from "react-router-dom";
 
 const TaskCard = props => {
   return (
@@ -10,9 +9,6 @@ const TaskCard = props => {
           <span className="taskCardTitle">Task:{props.task.name}</span>
         </h3>
         <p>Complete By: {props.task.completeBy}</p>
-        <Link to={`/tasks/${props.task.id}`}>
-          <button>Details</button>
-        </Link>
         <button
           type="button"
           onClick={() => props.history.push(`tasks/${props.task.id}/edit`)}

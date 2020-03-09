@@ -3,13 +3,13 @@ import TaskManager from "../../modules/TaskManager";
 import "./TaskForm.css";
 
 const TaskEditForm = props => {
-  const [task, setTask] = useState({ task: "", date: "" });
+  const [task, setTask] = useState({ name: "", date: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
     const stateToChange = { ...task };
     stateToChange[evt.target.id] = evt.target.value;
-    setAnimal(stateToChange);
+    setTask(stateToChange);
   };
 
   const updateExistingTask = evt => {
@@ -18,7 +18,7 @@ const TaskEditForm = props => {
 
     const editedTask = {
       id: props.match.params.TaskId,
-      task: task.task,
+      task: task.name,
       date: task.completeBy
     };
 
@@ -42,8 +42,8 @@ const TaskEditForm = props => {
               required
               className="form-control"
               onChange={handleFieldChange}
-              id="task"
-              value={task.task}
+              id="name"
+              value={task.name}
             />
             <label htmlFor="task">Task:</label>
             <input
@@ -51,7 +51,7 @@ const TaskEditForm = props => {
               required
               className="form-control"
               onChange={handleFieldChange}
-              id="date"
+              id="completeBy"
               value={task.completeBy}
             />
             <label htmlFor="completeBy">Date:</label>
@@ -71,3 +71,5 @@ const TaskEditForm = props => {
     </>
   );
 };
+
+export default TaskEditForm

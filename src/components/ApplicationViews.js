@@ -5,6 +5,7 @@ import Login from "./auth/Login";
 import TaskList from "./task/TaskList";
 import TaskForm from "./task/TaskForm";
 import MessageList from "./message/MessageList";
+import TaskEditForm from "./task/TaskEditForm";
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -40,6 +41,14 @@ const ApplicationViews = props => {
           return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />;
         }}
       />
+      <Route
+        path="/tasks/:taskId(\d+)/edit"
+        render={props => {
+            return hasUser
+            ? <TaskEditForm {...props} />
+            : <Redirect to="/login" />
+        }}
+        />
       <Route
         path="/messages"
         render={props => {

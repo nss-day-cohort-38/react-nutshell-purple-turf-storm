@@ -4,7 +4,7 @@ import "./TaskForm.css";
 
 const TaskForm = props => {
     const userId = sessionStorage.getItem("id")
-  const [task, setTask] = useState({ userId: userId, name: "", isComplete: false, completeBy: "" });
+  const [task, setTask] = useState({ userId: parseInt(userId), name: "", isComplete: false, completeBy: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
