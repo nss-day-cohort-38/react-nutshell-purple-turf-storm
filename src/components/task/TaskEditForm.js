@@ -3,8 +3,9 @@ import TaskManager from "../../modules/TaskManager";
 import "./TaskForm.css";
 
 const TaskEditForm = props => {
-  const [task, setTask] = useState({ name: "", date: "" });
+  const [task, setTask] = useState({ name: "", completeBy: "" });
   const [isLoading, setIsLoading] = useState(false);
+  const userId = sessionStorage.getItem("id")
 
   const handleFieldChange = evt => {
     const stateToChange = { ...task };
@@ -17,11 +18,14 @@ const TaskEditForm = props => {
     setIsLoading(true);
 
     const editedTask = {
-      id: props.match.params.TaskId,
-      task: task.name,
-      date: task.completeBy
-    };
+      id: parseInt(props.match.params.taskId),
+      userId: parseInt(userId),
+      name: task.name,
+      completeBy: task.completeBy,
+      isComplete: false
 
+    };
+    
     TaskManager.update(editedTask).then(() => props.history.push("/tasks"));
   };
 
@@ -47,7 +51,7 @@ const TaskEditForm = props => {
             />
             <label htmlFor="task">Task:</label>
             <input
-              type="text"
+              type="date"
               required
               className="form-control"
               onChange={handleFieldChange}
