@@ -3,8 +3,8 @@ import TaskManager from "../../modules/TaskManager";
 import "./TaskForm.css";
 
 const TaskForm = props => {
-    const userId = () => sessionStorage.getItem
-  const [task, setTask] = useState({ userId: userId, task: "", isComplete: false, completeBy: "" });
+    const userId = sessionStorage.getItem("id")
+  const [task, setTask] = useState({ userId: userId, name: "", isComplete: false, completeBy: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -37,10 +37,10 @@ const TaskForm = props => {
             />
             <label htmlFor="name">Task Name</label>
             <input
-              type="text"
+              type="date"
               required
               onChange={handleFieldChange}
-              id="comleteBy"
+              id="completeBy"
               placeholder="Complete By"
             />
             <label htmlFor="completeBy">Complete By</label>

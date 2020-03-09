@@ -11,6 +11,11 @@ const TaskList = props => {
     });
   };
 
+  const deleteTask = id => {
+    TaskManager.delete(id).then(() => 
+    TaskManager.getAll().then(setTasks))
+  }
+
   useEffect(() => {
     getTasks();
   }, []);
@@ -30,6 +35,7 @@ const TaskList = props => {
                 <TaskCard
                     key={task.id}
                     task={task}
+                    deleteTask={deleteTask}
                     {...props}
                     />
             ))}
