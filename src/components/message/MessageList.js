@@ -34,7 +34,7 @@ const MessageList = props => {
               {...props}
             />
           )}
-          <MessageForm/>
+          {/* <MessageForm/> */}
         </div>
       </section>
     </>

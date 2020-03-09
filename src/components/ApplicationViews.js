@@ -6,6 +6,7 @@ import TaskList from "./task/TaskList";
 import TaskForm from "./task/TaskForm";
 import MessageList from "./message/MessageList";
 import TaskEditForm from "./task/TaskEditForm";
+import MessageForm from "./message/MessageForm";
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -26,15 +27,6 @@ const ApplicationViews = props => {
         }}
       />
       <Route
-<<<<<<< HEAD
-        path="/messages"
-        render={props => {
-          return hasUser ? (
-            <MessageList {...props} />
-          ) : (
-            <Redirect to="/login" />
-          );
-=======
         exact
         path="/tasks"
         render={props => {
@@ -66,8 +58,14 @@ const ApplicationViews = props => {
           } else {
             return <Redirect to="/login" />;
           }
->>>>>>> 7fbfcc77cc9a61df3f3d497a1f05e485980de95d
         }}
+      />
+      <Route path="/messages"
+      render={props => {
+        return (
+          <MessageForm {...props}/>
+        )
+      }}
       />
     </React.Fragment>
   );

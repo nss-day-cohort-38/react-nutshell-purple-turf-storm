@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import MessageManager from "../../modules/MessageManager";
 import moment from "moment";
 
-const MessagesForm = () => {
-  const [message, setMessage] = useState({ userId: "", message: "", date: "" });
+const MessagesForm = (props) => {
+    const userId = sessionStorage.getItem("id");
+  const [message, setMessage] = useState({ userId: parseInt(userId), message: "", date: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -20,7 +21,7 @@ const MessagesForm = () => {
       };
     evt.preventDefault();
     setIsLoading(true);
-    MessageManager.post(newMessageObject);
+    MessageManager.post(newMessageObject)
   };
 
   return (
@@ -33,7 +34,7 @@ const MessagesForm = () => {
               type="text"
               required
               onChange={handleFieldChange}
-              id="id"
+              id="message"
               placeholder="Say hello!"
             />
           </div>
