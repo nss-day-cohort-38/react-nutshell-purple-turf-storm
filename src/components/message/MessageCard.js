@@ -1,17 +1,17 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 
-const MessagesCard = props => {
+const MessageCard = props => {
     return (
         <div className="card">
             <div className="card-content">
                 <h3>
-                    Message: {props.messages.message}
+                    Message: {props.message.message}
                 </h3>
-    <p>Date: {props.messages.date}</p>
+    <h3>Date posted: {props.message.date}</h3>
             </div>
         </div>
     )
 }
 
-export default MessagesCard
+export default MessageCard

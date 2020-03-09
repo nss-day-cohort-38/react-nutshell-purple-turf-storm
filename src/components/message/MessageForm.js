@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import MessagesManager from "../../modules/MessageManager";
+// import MessagesManager from "../../modules/MessageManager";
 
 const MessagesForm = props => {
     const [message, setMessage] = useState({ message: "", date: ""});
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
         const stateToChange = { ...message };
