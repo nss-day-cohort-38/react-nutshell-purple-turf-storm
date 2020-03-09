@@ -2,10 +2,13 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import Login from "./auth/Login";
+import TaskList from "./task/TaskList";
+import TaskForm from "./task/TaskForm";
 import MessageList from "./message/MessageList";
 import NewsList from "./news/NewsList";
 import NewsDetail from "./news/NewsDetail"
 import NewsEditForm from "./news/NewsEditForm"
+import TaskEditForm from "./task/TaskEditForm";
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -26,13 +29,12 @@ const ApplicationViews = props => {
         }}
       />
       <Route
-        path="/messages"
+        exact
+        path="/tasks"
         render={props => {
-          if (hasUser) {
-            return <MessageList {...props} />;
-          } else {
-            return <Redirect to="/login" />;
-          }
+          return hasUser 
+          ? <TaskList {...props} /> 
+          : <Redirect to="/login" />;
         }}
       />
       <Route
@@ -64,6 +66,28 @@ const ApplicationViews = props => {
           ) : (
             <Redirect to="/login" />
           );
+        }}
+      />
+      <Route
+        path="/tasks/new"
+        render={props => {
+        return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />}}/>
+      <Route
+        path="/tasks/:taskId(\d+)/edit"
+        render={props => {
+            return hasUser
+            ? <TaskEditForm {...props} />
+            : <Redirect to="/login" />
+        }}
+        />
+      <Route
+        path="/messages"
+        render={props => {
+          if (hasUser) {
+            return <MessageList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
     </React.Fragment>
