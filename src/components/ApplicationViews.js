@@ -47,9 +47,8 @@ const ApplicationViews = props => {
         path="/news/:newsId(\d+)"
         render={props => {
           return hasUser ? (
-              console.log(props.match.params.articleId),
             <NewsDetail
-              articleId={parseInt(props.match.params.articleId)}
+              articleId={parseInt(props.match.params.newsId)}
               {...props}
             />
           ) : (

@@ -17,7 +17,7 @@ const NewsEditForm = props => {
     setIsLoading(true);
 
     const editedArticle = {
-      id: props.match.params.articleId,
+      id: props.match.params.newsId,
       title: article.title,
       synopsis: article.synopsis,
       url: article.url,
@@ -29,7 +29,7 @@ const NewsEditForm = props => {
   }
 
   useEffect(() => {
-    NewsManager.get(props.match.params.articleId)
+    NewsManager.get(props.match.params.newsId)
       .then(article => {
         setArticle(article);
         setIsLoading(false);

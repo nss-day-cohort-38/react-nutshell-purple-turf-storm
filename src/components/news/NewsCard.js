@@ -20,7 +20,7 @@ const NewsCard = props => {
         </button>
         <button
           type="button"
-          onClick={() => props.deleteAnimal(props.article.id)}
+          onClick={() => props.deleteArticle(props.article.id)}
         >
           Delete
         </button>
