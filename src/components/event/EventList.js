@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import EventManager from "../../modules/EventManager";
 
+
+
+
 const EventList = props => {
   const [events, setEvents] = useState([]);
 
@@ -11,7 +14,10 @@ const EventList = props => {
       setEvents(eventsFromAPI);
     });
   };
-
+const deleteEvent = id => {
+    EventManager.delete(id).then(() =>
+    EventManager.getAll().then(setEvents))
+};
   
   useEffect(() => {
     getEvents();
@@ -38,6 +44,7 @@ const EventList = props => {
           <EventCard
             key={event.id}
             event={event}
+            deleteEvent={deleteEvent}
             {...props}
             />
             ))}

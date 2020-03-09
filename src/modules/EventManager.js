@@ -16,5 +16,10 @@ export default {
       body: JSON.stringify(newEvent)
     }).then(data => data.json());
   },
+  delete(id) {
+    return fetch(`${remoteURL}/events/${id}`, {
+      method: "DELETE"
+    }).then(result => result.json());
+  },
   
 };

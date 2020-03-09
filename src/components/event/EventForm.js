@@ -72,18 +72,7 @@ const EventForm = props => {
             >
               Submit
             </button>
-            <button
-              type="button"
-              onClick={() =>
-                props.history.push(`/events/${props.eventId}/edit`)
-              }
-            >
-              Edit
-            </button>
-
-            <button type="button" disabled={isLoading} onClick={handleDelete}>
-              Delete
-            </button>
+           
           </div>
         </fieldset>
       </form>
