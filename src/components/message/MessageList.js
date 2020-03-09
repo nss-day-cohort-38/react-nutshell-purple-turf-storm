@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MessageCard from "./MessageCard";
 import MessageManager from "../../modules/MessageManager";
+import MessageForm from "./MessageForm";
 
 const MessageList = props => {
   const [messages, setMessages] = useState([]);
@@ -32,8 +33,8 @@ const MessageList = props => {
               deleteMessage={deleteMessage}
               {...props}
             />
-            
           )}
+          <MessageForm/>
         </div>
       </section>
     </>

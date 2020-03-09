@@ -16,10 +16,10 @@ export default {
         }).then(results => results.json());
     },
     post(newMessage) {
-        return fetch(`${remoteUrl}/messages`, {
+        return fetch(`${remoteUrl}/messages?_expand=user`, {
             method: "POST",
             headers: {
-                "Content-Type": "applicaiton/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(newMessage)
         }).then(data => data.json())
