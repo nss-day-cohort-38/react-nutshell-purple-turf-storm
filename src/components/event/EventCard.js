@@ -7,7 +7,7 @@ const EventCard = props => {
     <div className="card">
       <div className="card-content">
          <picture>
-          <img src={require("./event.svg")} alt="Event" />
+          <img src={require("./event.svg")} alt="Event"/>
         </picture>
         <h3>
           Name: <span className="card-eventname">{props.event.name}</span>
@@ -15,9 +15,7 @@ const EventCard = props => {
         <p>Date: {props.event.date}</p>
         <p>Location: {props.event.location}</p>
 
-        <Link to={`/events/${props.event.id}`}>
-          <button>Details</button>
-        </Link>
+        
       </div>
     </div>
   );

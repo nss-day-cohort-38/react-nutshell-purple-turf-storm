@@ -39,8 +39,8 @@ const EventList = props => {
             key={event.id}
             event={event}
             {...props}
-          />
-        ))}
+            />
+            ))}
       </div>
       </section>
     </React.Fragment>
