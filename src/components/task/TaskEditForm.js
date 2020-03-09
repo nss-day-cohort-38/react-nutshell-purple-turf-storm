@@ -55,7 +55,16 @@ const TaskEditForm = props => {
               value={task.completeBy}
             />
             <label htmlFor="completeBy">Date:</label>
-
+          </div>
+          <div>
+            <button
+              type="button"
+              disabled={isLoading}
+              onClick={updateExistingTask}
+              className="btn btn-primary"
+            >
+              Submit
+            </button>
           </div>
         </fieldset>
       </form>

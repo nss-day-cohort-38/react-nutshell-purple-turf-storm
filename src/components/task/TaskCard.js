@@ -10,6 +10,9 @@ const TaskCard = props => {
           <span className="taskCardTitle">Task:{props.task.name}</span>
         </h3>
         <p>Complete By: {props.task.completeBy}</p>
+        <p>No id in session storage</p>
+        <p>alt for image</p>
+        <p></p>
         <Link to={`/tasks/${props.task.id}`}>
           <button>Details</button>
         </Link>

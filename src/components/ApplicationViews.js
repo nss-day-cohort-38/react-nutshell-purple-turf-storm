@@ -3,6 +3,7 @@ import React from "react";
 import Home from "./home/Home";
 import Login from "./auth/Login";
 import TaskList from "./task/TaskList";
+import TaskForm from "./task/TaskForm";
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -30,6 +31,15 @@ const ApplicationViews = props => {
           ? <TaskList {...props} /> 
           : <Redirect to="/login" />;
         }}
+      />
+      <Route
+      exact
+      path="/tasks/new"
+      render={props => {
+          return hasUser
+          ? <TaskForm {...props} />
+          : <Redirect to="/login" />
+      }}
       />
     </React.Fragment>
   );
