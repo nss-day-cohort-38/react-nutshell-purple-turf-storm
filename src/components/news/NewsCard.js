@@ -7,14 +7,14 @@ const NewsCard = props => {
     <div className="card">
       <div className="card-content">
         <h3>
-          <span className="card-petname">{props.article.title}</span>
+          <span className="card-title">{props.article.title}</span>
         </h3>
-        <Link to={`/articles/${props.article.id}`}>
+        <Link to={`/news/${props.article.id}`}>
           <button>Details</button>
         </Link>
         <button
           type="button"
-          onClick={() => props.history.push(`/articles/${props.article.id}/edit`)}
+          onClick={() => props.history.push(`/news/${props.article.id}/edit`)}
         >
           Edit
         </button>
