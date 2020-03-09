@@ -3,12 +3,18 @@ import MessageCard from "./MessageCard";
 import MessageManager from "../../modules/MessageManager";
 
 const MessageList = props => {
-  const [messages, setmessages] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   const getMessages = () => {
-    return MessageManager.getAll().then(messagesFromAPI => {
-      setmessages(messagesFromAPI);
+    return MessageManager.getMessageUsername().then(messagesFromAPI => {
+      setMessages(messagesFromAPI);
     });
+  };
+
+  const deleteMessage = id => {
+    MessageManager.delete(id).then(() =>
+      MessageManager.getMessageUsername().then(setMessages)
+    );
   };
 
   useEffect(() => {
@@ -20,7 +26,12 @@ const MessageList = props => {
       <section className="section-content">
         <div className="container-cards">
           {messages.map(message => 
-            <MessageCard key={message.id} message={message} {...props} />
+            <MessageCard
+              key={message.id}
+              message={message}
+              deleteMessage={deleteMessage}
+              {...props}
+            />
           )}
         </div>
       </section>
@@ -28,4 +39,4 @@ const MessageList = props => {
   );
 };
 
-export default MessageList
+export default MessageList;
