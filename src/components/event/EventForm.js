@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import EventManager from '../../modules/EventManager';
-import './EventForm.css'
+import React, { useState } from "react";
+import EventManager from "../../modules/EventManager";
+import "./EventForm.css";
 
 const EventForm = props => {
   const [event, setEvent] = useState({ name: "", date: "", location: "" });
@@ -18,10 +18,18 @@ const EventForm = props => {
       window.alert("Please input an Event's name, date, and location");
     } else {
       setIsLoading(true);
-      EventManager.post(event)
-        .then(() => props.history.push("/events"));
+      EventManager.post(event).then(() => props.history.push("/events"));
     }
   };
+
+  const handleDelete = () => {
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      setIsLoading(true);
+      EventManager.delete(props.eventId).then(() =>
+        props.history.push("/events")
+      );
+    }
+};
 
   return (
     <>
@@ -45,8 +53,9 @@ const EventForm = props => {
               placeholder="Date"
             />
             <label htmlFor="date">Date</label>
- 
-          <input type="location"
+
+            <input
+              type="location"
               required
               onChange={handleFieldChange}
               id="location"
@@ -60,7 +69,21 @@ const EventForm = props => {
               type="button"
               disabled={isLoading}
               onClick={constructNewEvent}
-            >Submit</button>
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                props.history.push(`/events/${props.eventId}/edit`)
+              }
+            >
+              Edit
+            </button>
+
+            <button type="button" disabled={isLoading} onClick={handleDelete}>
+              Delete
+            </button>
           </div>
         </fieldset>
       </form>

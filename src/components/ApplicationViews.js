@@ -5,7 +5,7 @@ import Login from "./auth/Login";
 import MessageList from "./message/MessageList";
 import EventList from "./event/EventList";
 import EventForm from "./event/EventForm";
-import EventEditform from "./event/EventEditForm";
+import EventEditForm from "./event/EventEditForm";
 
 const ApplicationViews = props => {
     const setUser = props.setUser;
@@ -41,7 +41,18 @@ const ApplicationViews = props => {
         render={props => {
           return <EventForm {...props} />;
         }}
-      />    
+      /> 
+
+      <Route
+        path="/events/:eventId(\d+)/edit"
+        render={props => {
+          if (hasUser) {
+            return <EventEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />   
 
 
 

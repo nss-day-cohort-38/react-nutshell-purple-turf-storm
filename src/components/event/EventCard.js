@@ -7,7 +7,7 @@ const EventCard = props => {
     <div className="card">
       <div className="card-content">
          <picture>
-          <img src={require("./event.svg")} alt="Event"/>
+          <img src={require("./events.svg.ai")} alt="Event"/>
         </picture>
         <h3>
           Name: <span className="card-eventname">{props.event.name}</span>
