@@ -9,6 +9,8 @@ const EventCard = props => {
         <picture>
           <img src={require("./event.svg")} alt="Event" />
         </picture>
+
+
         <h3>
           Name: <span className="card-eventname">{props.event.name}</span>
         </h3>
@@ -24,6 +26,7 @@ const EventCard = props => {
         <button type="button" onClick={() => props.deleteEvent(props.event.id)}>
           Delete
         </button>
+        
       </div>
     </div>
   );
