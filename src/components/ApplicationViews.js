@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import Login from "./auth/Login";
 import MessageList from "./message/MessageList";
 import EventList from "./event/EventList";
+import EventForm from "./event/EventForm";
 
 const ApplicationViews = props => {
     const setUser = props.setUser;
@@ -33,6 +34,16 @@ const ApplicationViews = props => {
                 return <EventList  setUser={setUser} {...props}/>
             }}
             />
+
+        <Route
+         path="/events/new"
+        render={props => {
+          return <EventForm {...props} />;
+        }}
+      />    
+
+
+
             {/* <Route exact path="/" render={props => {
                 return <Events />
             }}

@@ -14,13 +14,12 @@ const EventForm = props => {
 
   const constructNewEvent = evt => {
     evt.preventDefault();
-    if (event.name === "" || event.date === "" || event.date === "") {
-      window.alert("Please input an Even's name and role");
+    if (event.name === "" || event.date === "" || event.location === "") {
+      window.alert("Please input an Event's name, date, and location");
     } else {
       setIsLoading(true);
-      // Create the animal and redirect user to animal list
-      EmployeeManager.post(employee)
-        .then(() => props.history.push("/employees"));
+      EventManager.post(event)
+        .then(() => props.history.push("/events"));
     }
   };
 
@@ -34,26 +33,33 @@ const EventForm = props => {
               required
               onChange={handleFieldChange}
               id="name"
-              placeholder="Employee name"
+              placeholder="Event name"
             />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Event Name</label>
 
             <input
-              type="text"
+              type="date"
               required
               onChange={handleFieldChange}
-              id="role"
-              placeholder="Role"
+              id="date"
+              placeholder="Date"
             />
-            <label htmlFor="role">Role</label>
+            <label htmlFor="date">Date</label>
+ 
+          <input type="location"
+              required
+              onChange={handleFieldChange}
+              id="location"
+              placeholder="Location"
+            />
+            <label htmlFor="location">Location</label>
           </div>
 
-          
           <div className="alignRight">
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewEmployee}
+              onClick={constructNewEvent}
             >Submit</button>
           </div>
         </fieldset>
@@ -62,4 +68,4 @@ const EventForm = props => {
   );
 };
 
-export default EmployeeForm
+export default EventForm;
