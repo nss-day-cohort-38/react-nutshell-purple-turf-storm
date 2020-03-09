@@ -83,34 +83,5 @@ const ApplicationViews = props => {
      );
     };
 
-     export default ApplicationViews;
     
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </React.Fragment>
-    )
-}
-
 export default ApplicationViews;
