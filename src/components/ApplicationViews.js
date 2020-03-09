@@ -4,6 +4,8 @@ import Home from "./home/Home";
 import Login from "./auth/Login";
 import MessageList from "./message/MessageList";
 import NewsList from "./news/NewsList";
+import NewsDetail from "./news/NewsDetail"
+import NewsEditForm from "./news/NewsEditForm"
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -45,8 +47,9 @@ const ApplicationViews = props => {
         path="/news/:newsId(\d+)"
         render={props => {
           return hasUser ? (
+              console.log(props.match.params.articleId),
             <NewsDetail
-              newsId={parseInt(props.match.params.newsId)}
+              articleId={parseInt(props.match.params.articleId)}
               {...props}
             />
           ) : (

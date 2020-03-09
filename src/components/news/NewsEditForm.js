@@ -57,7 +57,7 @@ const NewsEditForm = props => {
               className="form-control"
               onChange={handleFieldChange}
               id="synopsis"
-              value={animal.synopsis}
+              value={article.synopsis}
             />
             <label htmlFor="synopsis">Synopsis</label>
             <input
@@ -66,7 +66,7 @@ const NewsEditForm = props => {
               className="form-control"
               onChange={handleFieldChange}
               id="url"
-              value={animal.url}
+              value={article.url}
             />
             <label htmlFor="url">URL</label>
           </div>
