@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from "react"
 import EventManager from "../../modules/EventManager"
-import "./AnimalForm.css"
+import "./EventForm.css"
 
-const AnimalEditForm = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "" });
+const EventEditForm = props => {
+  const [event, setEvent] = useState({ name: "", breed: "", location: ""  });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
-    const stateToChange = { ...animal };
+    const stateToChange = { ...event };
     stateToChange[evt.target.id] = evt.target.value;
-    setAnimal(stateToChange);
+    setEvent(stateToChange);
   };
 
-  const updateExistingAnimal = evt => {
+  const updateExistingEvent = evt => {
     evt.preventDefault()
     setIsLoading(true);
 
     // This is an edit, so we need the id
-    const editedAnimal = {
-      id: props.match.params.animalId,
-      name: animal.name,
-      breed: animal.breed
+    const editedEvent = {
+      id: props.match.params.eventId,
+      name: event.name,
+      date: event.date,
+      location: event.location
     };
 
-    AnimalManager.update(editedAnimal)
-      .then(() => props.history.push("/animals"))
+    EventManager.update(editedEvent)
+      .then(() => props.history.push("/events"))
   }
 
   useEffect(() => {
-    AnimalManager.get(props.match.params.animalId)
-      .then(animal => {
-        setAnimal(animal);
+    EventManager.get(props.match.params.eventId)
+      .then(event => {
+        setEvent(event);
         setIsLoading(false);
       });
   }, []);
@@ -46,24 +47,36 @@ const AnimalEditForm = props => {
               className="form-control"
               onChange={handleFieldChange}
               id="name"
-              value={animal.name}
+              value={event.name}
             />
-            <label htmlFor="name">Animal name</label>
+            <label htmlFor="name">Event name</label>
 
             <input
+              type="date"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="date"
+              value={event.date}
+            />
+            <label htmlFor="date">Date</label>
+          </div>
+
+          <input
               type="text"
               required
               className="form-control"
               onChange={handleFieldChange}
-              id="breed"
-              value={animal.breed}
+              id="location"
+              value={event.location}
             />
-            <label htmlFor="breed">Breed</label>
-          </div>
+            <label htmlFor="location">Location</label>
+
+
           <div className="alignRight">
             <button
               type="button" disabled={isLoading}
-              onClick={updateExistingAnimal}
+              onClick={updateExistingEvent}
               className="btn btn-primary"
             >Submit</button>
           </div>
@@ -73,4 +86,4 @@ const AnimalEditForm = props => {
   );
 }
 
-export default AnimalEditForm
+export default EventEditForm

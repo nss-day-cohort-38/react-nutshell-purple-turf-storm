@@ -5,6 +5,7 @@ import Login from "./auth/Login";
 import MessageList from "./message/MessageList";
 import EventList from "./event/EventList";
 import EventForm from "./event/EventForm";
+import EventEditform from "./event/EventEditForm";
 
 const ApplicationViews = props => {
     const setUser = props.setUser;
