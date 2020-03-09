@@ -19,13 +19,13 @@ const Login = props => {
     e.preventDefault();
     let valid = false;
     UserManager.getAll().then(users => {
-      users.filter(user => {
+      users.map(user => {
         if (
           user.userName === credentials.userName &&
           user.password === credentials.password
         ) {
           valid = true;
-          props.setUser(credentials);
+          props.setUser(credentials, user.id);
           props.history.push("/");
         }
       });
