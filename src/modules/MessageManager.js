@@ -11,7 +11,7 @@ export default {
         return fetch(`${remoteUrl}/messages`).then(result => result.json());
     },
     delete(id) {
-        return fetch(`${remoteUrl}/messages/${id}`, {
+        return fetch(`${remoteUrl}/messages/${id}?_expand=user`, {
             method: "DELETE"
         }).then(results => results.json());
     }

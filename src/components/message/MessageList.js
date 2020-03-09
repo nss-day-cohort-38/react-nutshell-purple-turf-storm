@@ -11,14 +11,9 @@ const MessageList = props => {
     });
   };
 
-//   const getMessageUser = MessageManager.getMessageUsername()
-//     .then(messages => messages.user)
-    
-    
-
   const deleteMessage = id => {
     MessageManager.delete(id).then(() =>
-      MessageManager.getAll().then(setMessages)
+      MessageManager.getMessageUsername().then(setMessages)
     );
   };
 

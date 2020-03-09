@@ -1,5 +1,4 @@
 import React from "react";
-import MessageManager from "../../modules/MessageManager";
 // import { Link } from "react-router-dom";
 
 const MessageCard = props => {
