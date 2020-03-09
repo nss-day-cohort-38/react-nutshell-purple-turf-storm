@@ -8,8 +8,9 @@ const Nutshell = () => {
 
     const [hasUser, setHasUser] = useState(isAuthenticated());
 
-    const setUser = user => {
+    const setUser = (user, id) => {
         sessionStorage.setItem("credentials", JSON.stringify(user));
+        sessionStorage.setItem("id", id)
         setHasUser(isAuthenticated());
     }
 
