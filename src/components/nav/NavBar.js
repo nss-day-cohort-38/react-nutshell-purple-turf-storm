@@ -56,7 +56,7 @@ const NavBar = props => {
           ) : null}
           {props.hasUser ? (
             <li>
-              <Link className="nav-link" onClick={handleLogout}>
+              <Link className="nav-link" to="/" onClick={handleLogout}>
                 Logout
               </Link>
             </li>
