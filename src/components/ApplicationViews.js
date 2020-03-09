@@ -79,10 +79,11 @@ const ApplicationViews = props => {
             : <Redirect to="/login" />
         }}
         />
-     
-     )};
+     </React.Fragment>
+     );
+    };
 
-        export default ApplicationViews
+     export default ApplicationViews;
     
 
 
