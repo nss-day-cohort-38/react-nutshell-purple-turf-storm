@@ -5,6 +5,9 @@ import Login from "./auth/Login";
 import TaskList from "./task/TaskList";
 import TaskForm from "./task/TaskForm";
 import MessageList from "./message/MessageList";
+import NewsList from "./news/NewsList";
+import NewsDetail from "./news/NewsDetail"
+import NewsEditForm from "./news/NewsEditForm"
 import TaskEditForm from "./task/TaskEditForm";
 import MessageForm from "./message/MessageForm";
 
@@ -37,11 +40,39 @@ const ApplicationViews = props => {
       />
       <Route
         exact
-        path="/tasks/new"
+        path="/news"
         render={props => {
-          return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />;
+          return hasUser ? <NewsList {...props} /> : <Redirect to="/login" />;
         }}
       />
+      <Route
+        exact
+        path="/news/:newsId(\d+)"
+        render={props => {
+          return hasUser ? (
+            <NewsDetail
+              articleId={parseInt(props.match.params.newsId)}
+              {...props}
+            />
+          ) : (
+            <Redirect to="/login" />
+          );
+        }}
+      />
+      <Route
+        path="/news/:newsId(\d+)/edit"
+        render={props => {
+          return hasUser ? (
+            <NewsEditForm {...props} />
+          ) : (
+            <Redirect to="/login" />
+          );
+        }}
+      />
+      <Route
+        path="/tasks/new"
+        render={props => {
+        return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />}}/>
       <Route
         path="/tasks/:taskId(\d+)/edit"
         render={props => {
