@@ -20,7 +20,7 @@ const MessageList = props => {
       <section className="section-content">
         <div className="container-cards">
           {messages.map(message => 
-            <MessageCard key={messages.id} message={message} {...props} />
+            <MessageCard key={message.id} message={message} {...props} />
           )}
         </div>
       </section>
