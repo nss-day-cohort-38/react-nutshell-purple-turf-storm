@@ -14,5 +14,14 @@ export default {
         return fetch(`${remoteUrl}/messages/${id}?_expand=user`, {
             method: "DELETE"
         }).then(results => results.json());
+    },
+    post(newMessage) {
+        return fetch(`${remoteUrl}/messages`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "applicaiton/json"
+            },
+            body: JSON.stringify(newMessage)
+        }).then(data => data.json())
     }
 }

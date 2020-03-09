@@ -32,6 +32,7 @@ const MessageList = props => {
               deleteMessage={deleteMessage}
               {...props}
             />
+            
           )}
         </div>
       </section>
