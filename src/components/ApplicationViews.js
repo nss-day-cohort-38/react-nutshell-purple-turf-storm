@@ -1,11 +1,12 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import Login from "./auth/Login";
+import MessagesList from "./message/MessageList";
 
 const ApplicationViews = props => {
     const setUser = props.setUser;
-    const hasUser = props.hasUser;
+    // const hasUser = props.hasUser;
     return (
         <React.Fragment>
             <Route path="/login" render={props => {
@@ -14,6 +15,11 @@ const ApplicationViews = props => {
             />
             <Route exact path="/" render={props => {
                 return <Home />
+            }}
+            />
+            <Route path="/messages"
+            render={props => {
+                return <MessagesList {...props} />;
             }}
             />
         </React.Fragment>
