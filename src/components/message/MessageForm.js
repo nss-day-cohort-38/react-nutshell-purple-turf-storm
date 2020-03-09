@@ -27,7 +27,7 @@ const MessagesForm = () => {
     <>
       <form>
         <fieldset>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">New message</label>
           <div className="formgrid">
             <input
               type="text"
