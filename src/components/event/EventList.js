@@ -19,10 +19,15 @@ const deleteEvent = id => {
     EventManager.getAll().then(setEvents))
 };
   
+  
+
+
   useEffect(() => {
     getEvents();
   }, []);
 
+
+  
  
   return (
     <React.Fragment>
@@ -39,8 +44,24 @@ const deleteEvent = id => {
         </button>
       
 
+
+      
+
+      
+
+
       <div className="container-cards">
-        {events.map(event => (
+        {events.sort((a, b) => {
+    if (a.date < b.date) {
+      return -1;
+    } else if (a.date > b.date) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }),
+
+        events.map(event => (
           <EventCard
             key={event.id}
             event={event}
