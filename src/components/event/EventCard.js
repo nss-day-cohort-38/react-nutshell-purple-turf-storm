@@ -12,7 +12,7 @@ const EventCard = props => {
 
 
         <h3>
-          Name: <span className="card-eventname">{props.event.name}</span>
+          Event: <span className="card-eventname">{props.event.name}</span>
         </h3>
         <p>Date: {props.event.date}</p>
         <p>Location: {props.event.location}</p>
