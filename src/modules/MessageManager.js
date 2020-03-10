@@ -23,5 +23,14 @@ export default {
             },
             body: JSON.stringify(newMessage)
         }).then(data => data.json())
+    },
+    update(editedMessage) {
+        return fetch(`${remoteUrl}/messages/${editedMessage.id}?_expand=user`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedMessage)
+        }).then(results => results.json())
     }
 }

@@ -10,6 +10,7 @@ import NewsDetail from "./news/NewsDetail"
 import NewsEditForm from "./news/NewsEditForm"
 import TaskEditForm from "./task/TaskEditForm";
 import MessageForm from "./message/MessageForm";
+import MessageEditForm from "./message/MessageEditForm"
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -85,18 +86,11 @@ const ApplicationViews = props => {
         path="/messages"
         render={props => {
           if (hasUser) {
-            return <MessageList {...props} />;
+            return <MessageList {...props} />
           } else {
             return <Redirect to="/login" />;
           }
         }}
-      />
-      <Route path="/messages"
-      render={props => {
-        return (
-          <MessageForm {...props}/>
-        )
-      }}
       />
     </React.Fragment>
   );

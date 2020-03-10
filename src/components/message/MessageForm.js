@@ -4,8 +4,8 @@ import moment from "moment";
 
 const MessagesForm = (props) => {
     const userId = sessionStorage.getItem("id");
-  const [message, setMessage] = useState({ userId: parseInt(userId), message: "", date: "" });
-  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState({ userId: parseInt(userId), newMessage: "", date: "" });
+//   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
     const stateToChange = { ...message };
@@ -16,12 +16,16 @@ const MessagesForm = (props) => {
   const createNewMessage = evt => {
       const newMessageObject = {
         userId: message.userId,
-        message: message.message,
-        date: moment().startOf('hour').fromNow()
+        message: message.newMessage,
+        date: moment().format('h:mm:ss a')
       };
     evt.preventDefault();
-    setIsLoading(true);
-    MessageManager.post(newMessageObject)
+    if (message.newMessage === "") {
+        window.alert("Please write a message")
+    } else {
+    // setIsLoading(true);
+    MessageManager.post(newMessageObject).then(props.getMessages)
+    }
   };
 
   return (
@@ -34,17 +38,17 @@ const MessagesForm = (props) => {
               type="text"
               required
               onChange={handleFieldChange}
-              id="message"
+              id="newMessage"
               placeholder="Say hello!"
             />
           </div>
           <div className="alignRight">
             <button
               type="button"
-              disabled={isLoading}
+            //   disabled={isLoading}
               onClick={createNewMessage}
             >
-              Comment
+              Post
             </button>
           </div>
         </fieldset>
