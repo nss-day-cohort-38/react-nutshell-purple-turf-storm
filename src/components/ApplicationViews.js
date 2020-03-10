@@ -9,8 +9,9 @@ import EventList from "./event/EventList";
 import EventForm from "./event/EventForm";
 import EventEditForm from "./event/EventEditForm";
 import NewsList from "./news/NewsList";
-import NewsDetail from "./news/NewsDetail";
-import NewsEditForm from "./news/NewsEditForm";
+import NewsDetail from "./news/NewsDetail"
+import NewsEditForm from "./news/NewsEditForm"
+import NewsForm from "./news/NewsForm"
 import TaskEditForm from "./task/TaskEditForm";
 
 const ApplicationViews = props => {
@@ -107,6 +108,10 @@ const ApplicationViews = props => {
           );
         }}
       />
+      <Route
+        path="/news/new"
+        render={props => {
+        return hasUser ? <NewsForm {...props} /> : <Redirect to="/login" />}}/>
       <Route
         path="/tasks/new"
         render={props => {
