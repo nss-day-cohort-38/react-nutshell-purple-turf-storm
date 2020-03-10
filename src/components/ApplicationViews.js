@@ -13,6 +13,8 @@ import NewsDetail from "./news/NewsDetail"
 import NewsEditForm from "./news/NewsEditForm"
 import NewsForm from "./news/NewsForm"
 import TaskEditForm from "./task/TaskEditForm";
+import MessageForm from "./message/MessageForm";
+import MessageEditForm from "./message/MessageEditForm"
 
 const ApplicationViews = props => {
   const setUser = props.setUser;
@@ -118,9 +120,9 @@ const ApplicationViews = props => {
           return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />;
         }}
       />
-      <Route
-        path="/tasks/:taskId(\d+)/edit"
-        render={props => {
+          <Route
+            path="/tasks/:taskId(\d+)/edit"
+            render={props => {
           return hasUser ? (
             <TaskEditForm {...props} />
           ) : (
