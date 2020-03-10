@@ -27,8 +27,12 @@
   
 .container-cards .card:first-child  {
   background-color: rgb(187, 229, 243);
-
-
+  font-weight: bold;
+  font-size: 16px;
+  border: slateblue;
+  border-radius: 5px;
+  border-style: inset;
+  border-width: 2px;
 }
  
   
