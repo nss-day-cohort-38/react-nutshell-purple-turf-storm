@@ -1,6 +1,11 @@
 import React from "react";
 import "./Event.css";
 import { Link } from "react-router-dom";
+import moment from 'moment'
+
+
+const date = moment()
+moment().format("YYYY Do MM")
 
 const EventCard = props => {
   return (
@@ -9,8 +14,7 @@ const EventCard = props => {
         <picture>
           <img src={require("./event.svg")} alt="Event" />
         </picture>
-
-
+        
         <h3>
           Event: <span className="card-eventname">{props.event.name}</span>
         </h3>
