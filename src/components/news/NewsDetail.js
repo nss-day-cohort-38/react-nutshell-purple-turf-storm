@@ -32,7 +32,7 @@ const NewsDetail = props => {
           <span style={{ color: "darkslategrey" }}>{article.title}</span>
         </h3>
         <p>{article.synopsis}</p>
-        <p>{article.url}</p>
+        <a href={`https://${article.url}`} target="_blank">{article.url}</a>
         <button
           type="button"
           onClick={() => props.history.push(`/news/${props.articleId}/edit`)}
