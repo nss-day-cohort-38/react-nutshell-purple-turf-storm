@@ -1,8 +1,8 @@
 import React from "react";
 import "./Event.css";
 import { Link } from "react-router-dom";
-
-
+import moment from 'moment';
+console.log(moment);
 
 
 const EventCard = props => {
@@ -11,8 +11,9 @@ const EventCard = props => {
       <div className="card-content">
         <picture>
           <img src={require("./event.svg")} alt="Event" />
+          
         </picture>
-        
+       
         <h3>
           Event: <span className="card-eventname">{props.event.name}</span>
         </h3>
@@ -24,11 +25,11 @@ const EventCard = props => {
         >
           Edit
         </button>
-
+      
         <button type="button" onClick={() => props.deleteEvent(props.event.id)}>
           Delete
         </button>
-        
+       
       </div>
     </div>
   );

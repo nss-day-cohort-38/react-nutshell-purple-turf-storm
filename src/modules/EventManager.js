@@ -21,5 +21,14 @@ export default {
       method: "DELETE"
     }).then(result => result.json());
   },
+  update(editedEvent) {
+    return fetch(`${remoteURL}/events/${editedEvent.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedEvent)
+    }).then(data => data.json());
+  }
   
 };
