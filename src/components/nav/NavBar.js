@@ -63,7 +63,7 @@ const NavBar = props => {
           ) : (
             <li>
               <Link className="nav-link" to="/login">
-                Login
+                Login/Register
               </Link>
             </li>
           )}
