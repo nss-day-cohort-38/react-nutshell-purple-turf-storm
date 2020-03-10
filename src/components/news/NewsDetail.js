@@ -33,9 +33,17 @@ const NewsDetail = props => {
         </h3>
         <p>{article.synopsis}</p>
         <p>{article.url}</p>
-        <p>{article.date}</p>
+        <button
+          type="button"
+          onClick={() => props.history.push(`/news/${props.articleId}/edit`)}
+        >
+          Edit
+        </button>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Delete
+        </button>
+        <button type="button" disabled={isLoading} onClick={() => props.history.push(`/news`)}>
+          Go Back
         </button>
       </div>
     </div>

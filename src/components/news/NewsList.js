@@ -23,17 +23,6 @@ const NewsList = (props) => {
 
   return (
     <>
-    {/* <section className="section-content">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            props.history.push("/articles/new");
-          }}
-        >
-          Post News
-        </button>
-      </section> */}
     <div className="container-cards">
       {articles.map(article => (
         <NewsCard
@@ -44,6 +33,17 @@ const NewsList = (props) => {
         />
       ))}
     </div>
+    <section className="section-content">
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            props.history.push("/news/new");
+          }}
+        >
+          Post News
+        </button>
+      </section>
     </>
   );
 };

@@ -1,29 +1,17 @@
 import React from "react";
 import "./News.css";
-import { Link } from "react-router-dom";
+import moment from "moment"
 
 const NewsCard = props => {
   return (
     <div className="card">
       <div className="card-content">
         <h3>
-          <span className="card-title">{props.article.title}</span>
+          <span className="card-title" onClick={() => props.history.push(`/news/${props.article.id}`)}>{props.article.title}</span>
         </h3>
-        <Link to={`/news/${props.article.id}`}>
-          <button>Details</button>
-        </Link>
-        <button
-          type="button"
-          onClick={() => props.history.push(`/news/${props.article.id}/edit`)}
-        >
-          Edit
-        </button>
-        <button
-          type="button"
-          onClick={() => props.deleteArticle(props.article.id)}
-        >
-          Delete
-        </button>
+        <h4>
+            Posted: {moment(props.article.date, "MMDDYYYY hh:mm:ss a").fromNow()}
+        </h4>
       </div>
     </div>
   );
