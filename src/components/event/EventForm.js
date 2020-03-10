@@ -24,14 +24,7 @@ const EventForm = props => {
     }
   };
 
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this event?")) {
-      setIsLoading(true);
-      EventManager.delete(props.eventId).then(() =>
-        props.history.push("/events")
-      );
-    }
-};
+  
 
   return (
     <>
