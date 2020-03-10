@@ -21,6 +21,7 @@ const userId = sessionStorage.getItem("id")
     // This is an edit, so we need the id
     const editedEvent = {
       id: props.match.params.eventId,
+      userId: userId,
       name: event.name,
       date: event.date,
       location: event.location

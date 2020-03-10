@@ -3,7 +3,9 @@ import EventManager from "../../modules/EventManager";
 import "./EventForm.css";
 
 const EventForm = props => {
-  const [event, setEvent] = useState({ name: "", date: "", location: "" });
+  const userId = 
+  sessionStorage.getItem("id")
+  const [event, setEvent] = useState({userId: userId, name: "", date: "", location: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
