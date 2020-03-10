@@ -14,5 +14,23 @@ export default {
         return fetch(`${remoteUrl}/messages/${id}?_expand=user`, {
             method: "DELETE"
         }).then(results => results.json());
+    },
+    post(newMessage) {
+        return fetch(`${remoteUrl}/messages?_expand=user`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newMessage)
+        }).then(data => data.json())
+    },
+    update(editedMessage) {
+        return fetch(`${remoteUrl}/messages/${editedMessage.id}?_expand=user`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedMessage)
+        }).then(results => results.json())
     }
 }

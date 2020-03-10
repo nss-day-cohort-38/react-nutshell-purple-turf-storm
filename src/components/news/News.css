@@ -5,7 +5,7 @@
     border-radius: 5px; /* 5px rounded corners */
     background: aliceblue;
     margin-bottom: 2em;
-    /* flex: 0 1 24%; */
+    flex: 0 1 51%;
   }
   
   .card-content {
@@ -16,7 +16,14 @@
     margin-top: 0;
     margin-bottom: .5em;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
     color: rgb(43, 112, 241);
+  }
+
+  .card-content h4 {
+    display: flex;
+    justify-content: center;
   }
   
   .card-content p {
@@ -26,6 +33,11 @@
   
   .content-petname {
     color: darkslategrey;
+  }
+
+  .container-cards {
+      display: flex;
+      justify-content: center;
   }
   
   .card button {
@@ -44,4 +56,9 @@
   
   .card button:hover {
     background-color: darkblue;
+  }
+
+  .section-content {
+      display: flex;
+      justify-content: center;
   }
