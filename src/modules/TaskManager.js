@@ -1,5 +1,6 @@
 const remoteURL = "http://localhost:5002";
 
+
 export default {
     //get an individual task from api
   get(id) {
@@ -34,5 +35,14 @@ export default {
       },
       body: JSON.stringify(editedTask)
     }).then(data => data.json());
+  },
+  complete(id, isComplete) {
+      return fetch(`${remoteURL}/tasks/${id}`, {
+          method: "PATCH",
+          headers: {
+              "Content-Type": "application/json"
+          },
+           body: JSON.stringify({id, isComplete})
+      })
   }
 };

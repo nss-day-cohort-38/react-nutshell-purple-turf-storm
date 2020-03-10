@@ -4,7 +4,7 @@ import TaskManager from "../../modules/TaskManager";
 
 const TaskList = props => {
   const [tasks, setTasks] = useState([]);
-
+  
   const getTasks = () => {
     return TaskManager.getAll().then(tasksFromAPI => {
       setTasks(tasksFromAPI);
@@ -12,7 +12,14 @@ const TaskList = props => {
   };
 
   const deleteTask = id => {
+    
     TaskManager.delete(id).then(() => 
+    TaskManager.getAll().then(setTasks))
+  }
+
+  const completeTask = id => {
+
+    TaskManager.complete(id, true).then(() => 
     TaskManager.getAll().then(setTasks))
   }
 
@@ -32,10 +39,12 @@ const TaskList = props => {
         </section>
         <div className="conatainerCards">
             {tasks.map(task => (
+              
                 <TaskCard
                     key={task.id}
                     task={task}
                     deleteTask={deleteTask}
+                    completeTask={completeTask}
                     {...props}
                     />
             ))}
