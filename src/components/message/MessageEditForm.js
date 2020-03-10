@@ -64,7 +64,7 @@ const MessageEditForm = props => {
               <div className="alignRight">
                   <button
                   type="button"
-                  onClick={editHandler()}
+                  onClick={updateMessage}
                   className="btn btn-primary"
                   >
                       Submit
