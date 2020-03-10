@@ -4,7 +4,12 @@ import moment from "moment";
 
 const MessageEditForm = props => {
   const [message, setMessage] = useState({ editMessage: "" });
-
+  
+  const editHandler = () => {
+    props.newMessageHandler()
+    updateMessage()
+  }
+  
   const handleFieldChange = evt => {
     const stateToChange = { ...message };
     stateToChange[evt.target.id] = evt.target.value;
@@ -22,6 +27,7 @@ const MessageEditForm = props => {
       date: moment().format("h:mm:ss a")
     };
 
+
       const loginInfo = sessionStorage.getItem("credentials").slice(12);
       const username = loginInfo.split(`"`);
   
@@ -33,7 +39,6 @@ const MessageEditForm = props => {
         });
       });
   };
-
 
   useEffect(() => {
       MessageManager.get(props.editMessageId).then(messages => {
@@ -59,7 +64,7 @@ const MessageEditForm = props => {
               <div className="alignRight">
                   <button
                   type="button"
-                  onClick={updateMessage}{...props.newMessageHandler}
+                  onClick={editHandler()}
                   className="btn btn-primary"
                   >
                       Submit
