@@ -43,8 +43,6 @@ const deleteEvent = id => {
         </button>
       
 
-
-
       <div className="container-cards">
         {events.sort((a, b) => {
       if (a.date < b.date) {
@@ -57,6 +55,7 @@ const deleteEvent = id => {
     }),
 
         events.map(event => (
+          
           <EventCard
             key={event.id}
             event={event}
