@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 //import the components we will need
 import EventCard from "./EventCard";
 import EventManager from "../../modules/EventManager";
-
+import "./Event.css";
 
 
 
@@ -18,7 +18,6 @@ const deleteEvent = id => {
     EventManager.delete(id).then(() =>
     EventManager.getAll().then(setEvents))
 };
-  
   
 
 
@@ -45,21 +44,17 @@ const deleteEvent = id => {
       
 
 
-      
-
-      
-
 
       <div className="container-cards">
         {events.sort((a, b) => {
-    if (a.date < b.date) {
-      return -1;
-    } else if (a.date > b.date) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }),
+      if (a.date < b.date) {
+        return -1;
+      } else if (a.date > b.date) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }),
 
         events.map(event => (
           <EventCard

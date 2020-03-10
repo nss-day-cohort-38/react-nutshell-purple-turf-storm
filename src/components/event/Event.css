@@ -6,6 +6,7 @@
     background: aliceblue;
     margin-bottom: 2em;
     flex: 0 1 24%;
+    
   }
   
   .card-content {
@@ -24,9 +25,10 @@
     color: darkslategrey;
   }
   
-  .content-petname {
-    color: darkslategrey;
-  }
+.container-cards:first-child {
+  background-color: pink;
+}
+ 
   
   .card button {
     background-color: cornflowerblue;
@@ -46,4 +48,19 @@
     background-color: darkblue;
   }
 
+  .section-content button {
+      max-width: 9em;
+      padding: .5em;
+      margin: .3em auto;
+      background-color: cornflowerblue;
+      border: none;
+      color: cornsilk;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      border-radius: 2px;
+      width: 100%;
+      cursor: pointer;
+  }
   
