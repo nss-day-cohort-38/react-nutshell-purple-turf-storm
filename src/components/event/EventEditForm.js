@@ -3,8 +3,10 @@ import EventManager from "../../modules/EventManager"
 import "./EventForm.css"
 
 const EventEditForm = props => {
-  const [event, setEvent] = useState({ name: "", breed: "", location: ""  });
+  const [event, setEvent] = useState({ name: "", date: "", location: ""  });
   const [isLoading, setIsLoading] = useState(false);
+const userId = sessionStorage.getItem("id")
+
 
   const handleFieldChange = evt => {
     const stateToChange = { ...event };
@@ -25,8 +27,8 @@ const EventEditForm = props => {
     };
 
     EventManager.update(editedEvent)
-      .then(() => props.history.push("/events"))
-  }
+      .then(() => props.history.push("/events"));
+  };
 
   useEffect(() => {
     EventManager.get(props.match.params.eventId)
@@ -49,7 +51,7 @@ const EventEditForm = props => {
               id="name"
               value={event.name}
             />
-            <label htmlFor="name">Event name</label>
+            <label htmlFor="name">Event Name: </label>
 
             <input
               type="date"
@@ -59,7 +61,7 @@ const EventEditForm = props => {
               id="date"
               value={event.date}
             />
-            <label htmlFor="date">Date</label>
+            <label htmlFor="date">Date:</label>
           </div>
 
           <input
@@ -84,6 +86,6 @@ const EventEditForm = props => {
       </form>
     </>
   );
-}
+};
 
 export default EventEditForm

@@ -9,62 +9,71 @@ import EventList from "./event/EventList";
 import EventForm from "./event/EventForm";
 import EventEditForm from "./event/EventEditForm";
 import NewsList from "./news/NewsList";
-import NewsDetail from "./news/NewsDetail"
-import NewsEditForm from "./news/NewsEditForm"
+import NewsDetail from "./news/NewsDetail";
+import NewsEditForm from "./news/NewsEditForm";
 import TaskEditForm from "./task/TaskEditForm";
 
 const ApplicationViews = props => {
-    const setUser = props.setUser;
-    const hasUser = props.hasUser;
-    return (
-        <React.Fragment>
-            <Route path="/login" render={props => {
-                return <Login setUser={setUser} {...props}/>
-            }}
-            />
-            <Route exact path="/" render={props => {
-                return <Home />
-            }}
-            />
-            <Route path="/messages"
-            render={props => {
-                if (hasUser) {
-                    return <MessageList {...props} />
-                } else {
-                    return <Redirect to="/login"/>
-                }
-            }}
-            />
+  const setUser = props.setUser;
+  const hasUser = props.hasUser;
+  return (
+    <React.Fragment>
+      <Route
+        path="/login"
+        render={props => {
+          return <Login setUser={setUser} {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/"
+        render={props => {
+          return <Home />;
+        }}
+      />
+      <Route
+        path="/messages"
+        render={props => {
+          if (hasUser) {
+            return <MessageList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
 
+      <Route
+        exact
+        path="/events"
+        render={props => {
+          return <EventList setUser={setUser} {...props} />;
+        }}
+      />
 
-            <Route exact path="/events" render={props => {
-                return <EventList  setUser={setUser} {...props}/>
-            }}
-            />
-
-        <Route
-         path="/events/new"
+      <Route
+        path="/events/new"
         render={props => {
           return <EventForm {...props} />;
         }}
-      /> 
+      />
+
 
       <Route
         path="/events/:eventId(\d+)/edit"
         render={props => {
-         return hasUser
-         ? <EventList {...props} />
-         : <Redirect to="/login" />;
+          return hasUser ? (
+            <EventEditForm {...props} />
+          ) : (
+            <Redirect to="/login" />
+          );
         }}
-        />
+      />
 
       <Route
         exact
         path="/tasks"
         render={props => {
-          return hasUser 
-          ? <TaskList {...props} /> 
-          : <Redirect to="/login" />;
+          return hasUser ? <TaskList {...props} /> : <Redirect to="/login" />;
         }}
       />
       <Route
@@ -101,18 +110,21 @@ const ApplicationViews = props => {
       <Route
         path="/tasks/new"
         render={props => {
-        return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />}}/>
+          return hasUser ? <TaskForm {...props} /> : <Redirect to="/login" />;
+        }}
+      />
       <Route
         path="/tasks/:taskId(\d+)/edit"
         render={props => {
-            return hasUser
-            ? <TaskEditForm {...props} />
-            : <Redirect to="/login" />
+          return hasUser ? (
+            <TaskEditForm {...props} />
+          ) : (
+            <Redirect to="/login" />
+          );
         }}
-        />
-     </React.Fragment>
-     );
-    };
+      />
+    </React.Fragment>
+  );
+};
 
-    
 export default ApplicationViews;

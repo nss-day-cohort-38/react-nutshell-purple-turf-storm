@@ -1,11 +1,9 @@
 import React from "react";
 import "./Event.css";
 import { Link } from "react-router-dom";
-import moment from 'moment'
 
 
-const date = moment()
-moment().format("YYYY Do MM")
+
 
 const EventCard = props => {
   return (
@@ -22,7 +20,7 @@ const EventCard = props => {
         <p>Location: {props.event.location}</p>
         <button
           type="button"
-          onClick={() => props.history.push(`/events/${props.eventId}/edit`)}
+          onClick={() => props.history.push(`events/${props.event.id}/edit`)}
         >
           Edit
         </button>
