@@ -4,7 +4,6 @@ import moment from "moment";
 
 const MessageEditForm = props => {
   const [message, setMessage] = useState({ editMessage: "" });
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
     const stateToChange = { ...message };
@@ -14,7 +13,6 @@ const MessageEditForm = props => {
 
   const updateMessage = evt => {
     evt.preventDefault();
-    setIsLoading(true);
     const sessionId = props.editMessageId;
 
     const editedMessage = {
@@ -40,7 +38,6 @@ const MessageEditForm = props => {
   useEffect(() => {
       MessageManager.get(props.editMessageId).then(messages => {
           setMessage(messages);
-          setIsLoading(false);
       });
   }, []);
   
@@ -62,8 +59,7 @@ const MessageEditForm = props => {
               <div className="alignRight">
                   <button
                   type="button"
-                  disabled={isLoading}
-                  onClick={updateMessage}
+                  onClick={updateMessage}{...props.newMessageHandler}
                   className="btn btn-primary"
                   >
                       Submit

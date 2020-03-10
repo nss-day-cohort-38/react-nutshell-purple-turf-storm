@@ -9,9 +9,13 @@ const MessageList = props => {
   const [editMessageId, setEditMessageId] = useState();
   const [isEdit, setIsEdit] = useState(false);
 
-  const editHandler = (id) => {
+  const editHandler = id => {
     setIsEdit(true);
-    setEditMessageId(id)
+    setEditMessageId(id);
+  };
+
+  const newMessageHandler = () => {
+    setIsEdit(false);
   };
 
   const getMessages = () => {
@@ -56,7 +60,12 @@ const MessageList = props => {
 
         <div>
           {isEdit ? (
-            <MessageEditForm getMessages={getMessages} editMessageId={editMessageId} {...props} />
+            <MessageEditForm
+              getMessages={getMessages}
+              editMessageId={editMessageId}
+              newMessageHandler={newMessageHandler}
+              {...props}
+            />
           ) : (
             <MessageForm getMessages={getMessages} {...props} />
           )}

@@ -5,7 +5,6 @@ import moment from "moment";
 const MessagesForm = (props) => {
     const userId = sessionStorage.getItem("id");
   const [message, setMessage] = useState({ userId: parseInt(userId), newMessage: "", date: "" });
-//   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
     const stateToChange = { ...message };
@@ -23,7 +22,6 @@ const MessagesForm = (props) => {
     if (message.newMessage === "") {
         window.alert("Please write a message")
     } else {
-    // setIsLoading(true);
     MessageManager.post(newMessageObject).then(props.getMessages)
     }
   };
@@ -45,7 +43,6 @@ const MessagesForm = (props) => {
           <div className="alignRight">
             <button
               type="button"
-            //   disabled={isLoading}
               onClick={createNewMessage}
             >
               Post
