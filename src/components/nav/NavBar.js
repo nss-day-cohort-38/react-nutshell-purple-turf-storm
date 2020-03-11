@@ -11,9 +11,11 @@ const NavBar = props => {
 
   return (
     <header>
+      <img src="https://www.svgrepo.com/show/133829/acorn.svg" alt="Acorn Icon"></img>   
       <h1 className="site-title">Nutshell</h1>
       <nav>
         <ul className="container">
+    
           <li>
             <Link className="nav-link" to="/">
               Home
@@ -68,6 +70,8 @@ const NavBar = props => {
             </li>
           )}
         </ul>
+    
+    
       </nav>
     </header>
   );

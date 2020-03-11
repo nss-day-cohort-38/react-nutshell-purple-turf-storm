@@ -31,6 +31,7 @@ const EventForm = props => {
       <form>
         <fieldset>
           <div className="formgrid">
+          <label htmlFor="name">Event Name</label>
             <input
               type="text"
               required
@@ -38,7 +39,7 @@ const EventForm = props => {
               id="name"
               placeholder="Event name"
             />
-            <label htmlFor="name">Event Name</label>
+          
 
             <input
               type="date"
