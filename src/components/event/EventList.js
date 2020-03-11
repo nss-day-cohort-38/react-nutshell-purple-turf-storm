@@ -30,7 +30,7 @@ const deleteEvent = id => {
  
   return (
     <React.Fragment>
-      <section className="section-content">
+      <section className="eventsection-content">
        
         <button
           type="button"
@@ -43,7 +43,7 @@ const deleteEvent = id => {
         </button>
       
 
-      <div className="container-cards">
+      <div className="eventcontainer-cards">
         {events.sort((a, b) => {
       if (a.date < b.date) {
         return -1;
