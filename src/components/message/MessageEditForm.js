@@ -16,8 +16,7 @@ const MessageEditForm = props => {
     setMessage(stateToChange);
   };
 
-  const updateMessage = evt => {
-    evt.preventDefault();
+  const updateMessage = () => {
     const sessionId = props.editMessageId;
 
     const editedMessage = {
@@ -58,13 +57,13 @@ const MessageEditForm = props => {
                   className="form-control"
                   onChange={handleFieldChange}
                   id="message"
-                  value={message.message}
+                  value={message.message || ""}
                   />
               </div>
               <div className="alignRight">
                   <button
                   type="button"
-                  onClick={updateMessage}
+                  onClick={editHandler}
                   className="btn btn-primary"
                   >
                       Submit

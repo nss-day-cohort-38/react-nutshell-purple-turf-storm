@@ -18,8 +18,8 @@ const MessagesForm = (props) => {
         message: message.newMessage,
         date: moment().format('h:mm:ss a')
       };
-    evt.preventDefault();
-    if (message.newMessage === "") {
+
+      if (message.newMessage === "") {
         window.alert("Please write a message")
     } else {
     MessageManager.post(newMessageObject).then(props.getMessages)
