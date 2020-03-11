@@ -64,7 +64,7 @@ const userId = sessionStorage.getItem("id")
             />
             <label htmlFor="date">Date:</label>
           </div>
-
+          <label htmlFor="location">Location</label>
           <input
               type="text"
               required
@@ -73,10 +73,10 @@ const userId = sessionStorage.getItem("id")
               id="location"
               value={event.location}
             />
-            <label htmlFor="location">Location</label>
+           
 
 
-          <div className="alignRight">
+          <div className="eventalignRight">
             <button
               type="button" disabled={isLoading}
               onClick={updateExistingEvent}
