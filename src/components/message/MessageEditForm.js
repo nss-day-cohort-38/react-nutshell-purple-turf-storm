@@ -1,3 +1,5 @@
+// Matt Reeds - This module contains the functions for editing previously submitted data and returns a new form with a text box to do so
+
 import React, { useState, useEffect } from "react";
 import MessageManager from "../../modules/MessageManager";
 import moment from "moment";
@@ -16,8 +18,7 @@ const MessageEditForm = props => {
     setMessage(stateToChange);
   };
 
-  const updateMessage = evt => {
-    evt.preventDefault();
+  const updateMessage = () => {
     const sessionId = props.editMessageId;
 
     const editedMessage = {
@@ -58,13 +59,13 @@ const MessageEditForm = props => {
                   className="form-control"
                   onChange={handleFieldChange}
                   id="message"
-                  value={message.message}
+                  value={message.message || ""}
                   />
               </div>
               <div className="alignRight">
                   <button
                   type="button"
-                  onClick={updateMessage}
+                  onClick={editHandler}
                   className="btn btn-primary"
                   >
                       Submit
