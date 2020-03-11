@@ -1,3 +1,5 @@
+// Matt Reeds - This module contains the funcitons for the delete button and passes props down to child componets to access
+
 import React, { useState, useEffect } from "react";
 import MessageCard from "./MessageCard";
 import MessageManager from "../../modules/MessageManager";
