@@ -1,5 +1,25 @@
 (./ReactNutshellERD.png)
 
+React Nutshell - Purple Turf Storm 
+
+Follow the link --> https://github.com/nss-day-cohort-38/react-nutshell-purple-turf-storm
+
+Clone down the React Nutshell repo via local terminal
+
+In terminal npm install
+
+In terminal npm install moment --save
+
+Then, in terminal npm install react-router-dom
+
+cd into react-nutshell-purple-turf-storm
+
+cd into api and then start json-server on port 5002 and watch database.json
+
+cd into the root and npm start
+
+Go nuts in our Nutshell app!!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

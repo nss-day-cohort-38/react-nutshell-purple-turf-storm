@@ -1,3 +1,5 @@
+// Matt Reeds - This module contains the funcitons and form for a new message to be submitted
+
 import React, { useState } from "react";
 import MessageManager from "../../modules/MessageManager";
 import moment from "moment";

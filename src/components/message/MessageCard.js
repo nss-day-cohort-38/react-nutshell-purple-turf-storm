@@ -1,3 +1,5 @@
+// Matt Reeds - This module creates the layout for the individual message cards
+
 import React from "react";
 
 const MessageCard = props => {
