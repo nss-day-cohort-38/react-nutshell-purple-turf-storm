@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const EventCard = props => {
   return (
-    <div className="card">
-      <div className="card-content">
+    <div className="eventcard">
+      <div className="eventcard-content">
         <picture>
           <img src={require("./event.svg")} alt="Event" />
           
