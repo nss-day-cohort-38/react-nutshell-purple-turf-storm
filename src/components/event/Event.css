@@ -3,7 +3,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    background: rgb(206, 235, 237);
+    background: rgb(212, 244, 245);
     margin-bottom: 2em;
     height: 50%;
     width: 50%;
@@ -49,7 +49,7 @@
   }
   
 .eventcontainer-cards .eventcard:first-child  {
-  background-color: rgb(158, 228, 233);
+  background-color: rgb(171, 249, 250);
   font-weight: bold;
   font-size: 30px;
   border: rgb(9, 99, 106);
