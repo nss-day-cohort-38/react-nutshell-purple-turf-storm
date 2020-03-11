@@ -1,13 +1,14 @@
-.m-card {
+.m-card, fieldset {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    background: aliceblue;
+    background: rgb(212, 244, 245);
     margin-bottom: 2em;
     flex: 0 1 24%;
     margin: .5em;
     width: 25em;
+    border: rgb(2, 110, 125);
   }
   
   .m-card-content {
@@ -18,30 +19,30 @@
     margin-top: 0;
     margin-bottom: .5em;
     font-weight: bold;
-    color: rgb(15, 50, 110);
+    color: rgb(20, 110, 126);
   }
   
   .m-card-content p {
     font-size: 80%;
-    color: darkslategrey;
+    color: rgb(8, 23, 23);
   }
   
-.m-container-cards {
+.m-container-cards, fieldset {
   background-color: rgb(187, 229, 243);
   font-weight: bold;
   font-size: 16px;
   border: slateblue;
   border-radius: 5px;
   border-style: inset;
-  border-width: 2px;
+  border-width: 1px;
   margin: 10px;
 }
  
   
   .m-card button {
-    background-color: cornflowerblue;
+    background-color: rgb(99, 175, 233);
     border: none;
-    color: cornsilk;
+    color: rgb(193, 231, 229);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -50,19 +51,20 @@
     border-radius: 2px;
     margin: .1em;
     width: 100%;
+    align-self: center;
   }
   
   .m-card button:hover {
-    background-color: darkblue;
-  }
+    background-color: rgb(162, 227, 250);
+    color:rgb(18, 90, 106);  }
 
   .m-section-content button {
       max-width: 9em;
       padding: .5em;
       margin: .3em auto;
-      background-color: cornflowerblue;
+      background-color: rgb(21, 157, 187);
       border: none;
-      color: cornsilk;
+      color: rgb(232, 252, 255);
       text-align: center;
       text-decoration: none;
       display: inline-block;
