@@ -12,10 +12,18 @@
     border-radius: 1px;
     border-style: inset;
     border-width: 1px;
+
     
     
   }
   
+  .eventcard-content img {
+    height: 320px;
+    width: auto;
+  }
+
+
+
   .eventcard-content {
     padding: .5em;
     max-height: 50%;
@@ -27,24 +35,23 @@
     margin-bottom: .5em;
     font-weight: bold;
     color: rgb(20, 110, 126);
-    height: 100%;
-    width: 100%;
+    height: 50%;
+    width: 320px;
+    font-size: 26px;
     
   }
   
   .eventcard-content p {
-    font-size: 16px;
+    font-size: 26px;
     color: rgb(8, 23, 23);
-    height: 100%;
-    width: 100%;
     height: 50%;
-    width: 50%;
+    width: 320px;
   }
   
 .eventcontainer-cards .eventcard:first-child  {
   background-color: rgb(158, 228, 233);
   font-weight: bold;
-  font-size: 16px;
+  font-size: 30px;
   border: rgb(9, 99, 106);
   border-radius: 1px;
   border-style: inset;
@@ -104,3 +111,11 @@
       cursor: pointer;
   }
   
+  .eventcard-content .card-eventname {
+    font-size: 40px;
+    text-align: end;
+    text-decoration: none;
+    width: 50%; 
+    height: 50%;
+    display: stretch;
+  }
