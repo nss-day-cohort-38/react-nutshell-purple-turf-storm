@@ -5,7 +5,11 @@
     border-radius: 5px; /* 5px rounded corners */
     background: rgb(206, 235, 237);
     margin-bottom: 2em;
-    flex: 0 1 24%;
+    height: 50%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-around, center;
+    
     
   }
   
@@ -16,19 +20,19 @@
   }
   
   .eventcard-content h3 {
-    margin-top: 0;
+    margin-top: 10;
     margin-bottom: .5em;
     font-weight: bold;
     color: rgb(20, 110, 126);
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
   }
   
   .eventcard-content p {
     font-size: 16px;
     color: rgb(8, 23, 23);
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
   }
   
 .eventcontainer-cards .card:first-child  {
@@ -39,8 +43,8 @@
   border-radius: 5px;
   border-style: inset;
   border-width: 2px;
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
 }
  
   
@@ -55,7 +59,7 @@
     padding: .5em;
     border-radius: 2px;
     margin: .1em;
-    width: 100%;
+    width: 50%;
     height: 50%;
   }
   
@@ -64,9 +68,16 @@
     color:rgb(18, 90, 106);
   }
 
+  .eventsection-content .btn:hover {
+    background-color: rgb(162, 227, 250);
+    color:rgb(18, 90, 106);
+  }
+  
+
+
   .eventsection-content button {
-      max-width: 9em;
-      padding: .5em;
+      max-width: 7em;
+      padding: .3em;
       margin: .3em auto;
       background-color: rgb(21, 157, 187);
       border: none;
