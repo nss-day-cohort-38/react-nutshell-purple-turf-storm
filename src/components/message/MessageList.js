@@ -47,8 +47,8 @@ const MessageList = props => {
 
   return (
     <>
-      <section className="section-content">
-        <div className="container-cards">
+      <section className="m-section-content">
+        <div className="m-container-cards">
           {messages.map(message => (
             <MessageCard
               key={message.id}

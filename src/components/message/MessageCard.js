@@ -1,6 +1,7 @@
 // Matt Reeds - This module creates the layout for the individual message cards
 
 import React from "react";
+import "./Message.css";
 
 const MessageCard = props => {
   const loginInfo = sessionStorage.getItem("credentials").slice(12);
@@ -8,8 +9,8 @@ const MessageCard = props => {
   const justUsername = username[1];
 
   return (
-    <div className="card">
-      <div className="card-content">
+    <div className="m-card">
+      <div className="m-card-content">
         <h3>{props.message.user.userName} says :</h3>
         <h3>"{props.message.message}"</h3>
         <h3>at: {props.message.date}</h3>
